@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="98" height="20" viewBox="0 0 98 20">
+  <g>
+    <!-- Красный play-контейнер -->
+    <rect x="0" y="0" width="34" height="20" rx="4" fill="#FF0000"></rect>
+    <!-- Белый play-треугольник -->
+    <polygon points="13,6 24,10 13,14" fill="#fff"></polygon>
+    <!-- GayTube -->
+    <text x="40" y="15" font-family="Roboto, Arial, sans-serif" font-size="14" font-weight="bold" letter-spacing="0">
+      <tspan fill="#282828">Gay</tspan><tspan fill="#282828">Tube</tspan>
+    </text>
+  </g>
+</svg>

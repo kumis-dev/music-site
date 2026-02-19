@@ -1,0 +1,199 @@
+/* Сайдбар */
+.sidebar {
+  width: 240px;
+  min-width: 72px;
+  transition: width 0.3s;
+  background: white;
+  padding-top: 13px;
+  z-index: 200;
+}
+
+.sidebar--collapsed {
+  width: 72px !important;
+}
+
+/* Контент */
+.main-content {
+  flex: 1 1 0%;
+  min-width: 0;
+  transition: margin-left 0.3s;
+}
+
+/* Скрытие подписей в сайдбаре при collapse */
+.sidebar--collapsed .sidebar-link {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.sidebar--collapsed .sidebar-link img {
+  margin-right: 0;
+  margin-bottom: 4px;
+}
+
+.sidebar--collapsed .sidebar-link div {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.sidebar-link div {
+    font-family: Roboto, Arial;
+    font-size: 14px;
+    text-align: center;
+    /* делаем перенос строк */
+    white-space: normal;
+    padding-left: 5px;
+    /* <-- задай ма8ксимально возможную ширину текста внутри sidebar */
+    
+    
+    /* чтобы не прилипал к иконке */
+  }
+
+
+
+.sidebar-link:hover {
+  background-color: rgb(235, 235, 235);
+}
+
+.sidebar-link img {
+  height: 24px;
+}
+
+.sidebar-link div {
+  font-family: Roboto, Arial;
+  font-size: 14px;
+  transition: opacity 0.2s, width 0.2s;
+  white-space: nowrap;
+}
+
+
+@media (max-width: 1200px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 55px;
+    background-color: white;
+    width: 72px;
+    z-index: 200;
+    padding-top: 5px;
+  }
+
+  .sidebar-link {
+    height: 74px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .sidebar-link:hover {
+    background-color: rgb(235, 235, 235);
+  }
+
+  .sidebar-link img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 24px;
+    margin-bottom: 4px;
+  }
+
+  .sidebar-link div {
+    font-family: Roboto, Arial;
+    font-size: 10px;
+  }
+
+}
+
+@media(min-width: 1000px) {
+  .sidebar-link div {
+    font-family: Roboto, Arial;
+    font-size: 14px;
+    text-align: center;
+    /* делаем перенос строк */
+    white-space: normal;
+    padding-right: 8px;
+    /* <-- задай ма8ксимально возможную ширину текста внутри sidebar */
+    
+    
+    /* чтобы не прилипал к иконке */
+  }
+}
+
+@media (min-width: 1200.1px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 55px;
+    background-color: white;
+    width: 240px;
+    z-index: 200;
+    padding-top: 13px;
+  }
+
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px 24px;
+  }
+
+  .sidebar-link:hover {
+    background-color: rgb(235, 235, 235);
+  }
+
+  .sidebar-link img {
+    height: 24px;
+    margin-right: 24px;
+  }
+
+
+  .sidebar--collapsed {
+    width: 72px;
+  }
+
+  .sidebar--collapsed .sidebar-link {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+
+  .sidebar--collapsed .sidebar-link img {
+    margin-right: 0;
+    margin-bottom: 4px;
+  }
+
+  .sidebar--collapsed .sidebar-link div {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .main-content {
+    margin-left: 168px;
+
+    /* или столько, сколько ширина sidebar в развернутом состоянии */
+    transition: margin-left 0.3s;
+  }
+
+  .sidebar--collapsed+.main-content,
+  .app-wrapper.sidebar-collapsed .main-content {
+    margin-left: 72px;
+    /* ширина sidebar в компактном режиме */
+  }
+
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
