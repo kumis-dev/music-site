@@ -48,7 +48,7 @@ playlists.forEach(playlist => {
     // клик по обложке — раскрыть/скрыть треки
     img.addEventListener('click', () => {
         hidden.classList.toggle('hidden');
-        h1.classList.toggle('hidden');
+        h2.classList.toggle('hidden');
 
         document.querySelectorAll('.playlists-cards > div').forEach(p => {
             if (p !== card) 
