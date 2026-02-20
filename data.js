@@ -1,6 +1,8 @@
 const AUDIO_BASE = 'https://music-site-files.s3.cloud.ru/audios/';
 const COVER_BASE = 'https://music-site-files.s3.cloud.ru/covers/';
 const PLAYLIST_COVER_BASE = 'https://music-site-files.s3.cloud.ru/cover-playlists/';
+const CHANNEL_PICTURES_BASE = 'https://music-site-files.s3.cloud.ru/channel-pictures/';
+const THUMBNAIL_BASE = 'https://music-site-files.s3.cloud.ru/thumbnails/';
 
 const suctionSongs = [
   'Duality',

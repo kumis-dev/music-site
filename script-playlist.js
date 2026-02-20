@@ -9,6 +9,7 @@ const artist = form.elements.artist;
 const title = form.elements.title;
 addButton.setAttribute('disabled', true);
 
+const API_URL = 'http://89.232.177.168:8080';
 
 const playListTitles = [
   'Билли Херингтон. Лучшее',

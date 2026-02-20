@@ -1,71 +1,71 @@
 let videoNamesAndPrewiews = [
   {
     text: 'Экономика Хасавюрта в 1 предложении',
-    image: 'thumbnails/kabanich.jpg'
+    image: `${THUMBNAIL_BASE}kabanich.jpg`
   },
   {
     text: 'Раздача пиздюлей от Мистера Биста',
-    image: 'thumbnails/12hours_of_slavery.png'
+    image: `${THUMBNAIL_BASE}12hours_of_slavery.png`
   },
   {
     text: 'Я запихал кучу тротила себе в очко',
-    image: 'thumbnails/mem1.jpeg'
+    image: `${THUMBNAIL_BASE}mem1.jpeg`
   },
   {
     text: 'Очередь в госуслугах за шашлыком',
-    image: 'thumbnails/zavod_is_evil.jpg'
+    image: `${THUMBNAIL_BASE}zavod_is_evil.jpg`
   },
   {
     text: 'Чеченский плов на полшестого',
-    image: 'thumbnails/shluxa.jpg'
+    image: `${THUMBNAIL_BASE}shluxa.jpg`
   },
   {
     text: 'Японцы охуели от наших дорог',
-    image: 'thumbnails/zub-horror.jpg'
+    image: `${THUMBNAIL_BASE}zub-horror.jpg`
   },
   {
     text: 'Рашн батя даёт пизды пельменям',
-    image: 'thumbnails/useful-things.jpg'
+    image: `${THUMBNAIL_BASE}useful-things.jpg`
   },
   {
     text: 'Узбеки ворвались на сходку гоблинов',
-    image: 'thumbnails/spiderman2.jpg'
+    image: `${THUMBNAIL_BASE}spiderman2.jpg`
   },
   {
     text: 'Кавказские бабушки устроили махач',
-    image: 'thumbnails/spiderman.jpg'
+    image: `${THUMBNAIL_BASE}spiderman.jpg`
   },
   {
     text: 'Мистер Бист отправил в рейд на Магнит',
-    image: 'thumbnails/bober-kurwa.png'
+    image: `${THUMBNAIL_BASE}bober-kurwa.png`
   },
   {
     text: 'Берем у скуфа на вяленого',
-    image: 'thumbnails/full_relax.png'
+    image: `${THUMBNAIL_BASE}full_relax.png`
   },
   {
     text: 'Армяне на шашлыках поймали шизу',
-    image: 'thumbnails/dobrota.png'
+    image: `${THUMBNAIL_BASE}dobrota.png`
   },
   {
     text: 'Став стримером, я охуел',
-    image: 'thumbnails/strujka.png'
+    image: `${THUMBNAIL_BASE}strujka.png`
   },
   {
     text: 'Новый айфон 17 вышел с камшотом вместо вспышки',
-    image: 'thumbnails/stathem1.jpg'
+    image: `${THUMBNAIL_BASE}stathem1.jpg`
   },
   {
     text: 'Суши стало морем, шок',
-    image: 'thumbnails/stathem2.jpg'
+    image: `${THUMBNAIL_BASE}stathem2.jpg`
   },
   {
     text: 'Яндекс такси довезло меня до дурки',
-    image: 'thumbnails/stathem3.jpg'
+    image: `${THUMBNAIL_BASE}stathem3.jpg`
   },
   {
     text: 'Налоги? Не, не слышал',
-    image: 'thumbnails/stathem4.jpg'
+    image: `${THUMBNAIL_BASE}stathem4.jpg`
   }
 ];
 
