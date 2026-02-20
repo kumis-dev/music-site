@@ -138,11 +138,13 @@ function doubleClickHandler() {
 coverHeading.addEventListener('dblclick', doubleClickHandler);
 
 resetButton.addEventListener('click', async function () {
+  console.log("RESET CLICKED");
   const songs = document.querySelectorAll('.song')
 
   for (let i = 0; i < songs.length; i++) {
     const id = songs[i].dataset.id;
     if (id) {
+      console.log("ID:", id);
       await fetch(API_URL + '/songs/' + id, {
         method: 'DELETE'
       });
