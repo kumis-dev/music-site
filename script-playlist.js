@@ -9,7 +9,9 @@ const artist = form.elements.artist;
 const title = form.elements.title;
 addButton.setAttribute('disabled', true);
 
-const API_URL = 'http://89.232.177.168:8080';
+const API_URL = window.location.hostname === 'localhost' 
+    ? 'http://localhost:8080' 
+    : 'http://89.232.177.168:8080';
 
 // асинхронная функция (не ждать ответа)
 async function saveSongToServer(artist, title) {
@@ -91,13 +93,13 @@ function getRandomElement(arr) {
 
 
 
-function keyHandler(event) {
+async function keyHandler(event) {
   if (event.key === "Enter") {
     event.preventDefault();
     // Добавляем ту же проверку, что и для кнопки
     if (artist.value.length > 0 && title.value.length > 0) {
-      addSong(artist.value, title.value);
-      saveSongToServer(artist.value, title.value);
+      const savedSong = await saveSongToServer(artist.value, title.value);
+      addSong(artist.value, title.value, savedSong.id);
       renderHasSongs();
       form.reset();
       setSubmitButtonState(false);
@@ -112,10 +114,10 @@ songsContainer.addEventListener('click', function (evt) {
   }
 });
 
-form.addEventListener('submit', function (evt) {
+form.addEventListener('submit', async function (evt) {
   evt.preventDefault();
-  addSong(artist.value, title.value);
-  saveSongToServer(artist.value, title.value);
+  const savedSong = await saveSongToServer(artist.value, title.value);
+  addSong(artist.value, title.value, savedSong.id);
   renderHasSongs();
   form.reset();
   setSubmitButtonState(false);
