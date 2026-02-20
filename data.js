@@ -37,7 +37,6 @@ const rockSongsForGayBoys = [
   'Vendetta',
   'Gehenna',
   'Sufur',
-  'Vi Key - diss ms supchik',
   'Wait and Bleed',
   'Never Too Late',
   'Animal I have become',
@@ -45,7 +44,7 @@ const rockSongsForGayBoys = [
 ];
 
 const kamishinVibeSongs = [
-  'Atl - Youth',
+  'Atl - Youth',         
   'Atl - Dance',
   'Evgeniy Trofimov - pizda',
   'Evgeniy Trofimov - 9.11',
@@ -109,7 +108,6 @@ const playlists = [
       'Slipopi - Vendetta',
       'Slipopi - Gehenna',
       'Slipopi - Sufur',
-      'Vi Key - diss ms supchik',
       'Slipopi - Wait and Bleed',
       'Three Days Grace - Never Too Late',
       'Three Days Grace - Animal I Have Become',

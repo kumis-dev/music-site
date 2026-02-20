@@ -12,32 +12,24 @@ const cover = document.querySelector('.cover__img');
 const imgSrc = document.querySelector('.img__src');
 let isShuffle = false; // проверка включена ли кнопка перемешивания плейлиста, по сути тумблер on/off
 let isRepeat = false;  // проверка включена ли кнопка повтора плейлиста
-
-const allSongs = [
-  ...suctionSongs,
-  ...loFiSongs,
-  ...animeSongs,
-  ...jRockSongs,
-  ...rockSongsForGayBoys,
-  ...kamishinVibeSongs
-];
-const allCovers = [];
-
 let currentPlaylist = ['Duality', 'Enter Sadman', 'Psychosocial', 'Useewa', 'Gira Gira', 'Somewhere I Belong', 'Faint', 'Lofi Sleep v1',]; // текущий плейлист
 let songIndex = 0; // будем отслеживать по нему массив текущего плейлиста
 const coverCash = {}; // создаем объект для загрузки кеша обложек
 const audioCash = {}; // создаем объект для загрузки кеша аудио
 
 function preLoadCovers(playlist) { // для оптимизации загружек обложек будем помещать их в кеш
-  playlist.forEach(song => {
-    const index = allSongs.indexOf(song);
-    // !coverCash[song] - проверка не существует ли эта песня уже в кеше
-    // если песня по индексу и сама обложка уже есть в кеше то пытаться заново грузить ее не будем
-    if (index !== -1 && !coverCash[song]) {
-      const image = new Image();
+  playlist.forEach(songTitle => {
+    const coverFileName = songTitle
+      .toLowerCase()
+      .replace(/ /g, '-')
+      .replace(/[^a-z0-9-]/g, '')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '');
+    if (!coverCash[songTitle]) {
       // coverCash обьект с ключом song и значением пути к картинке
-      image.onload = () => { coverCash[song] = image.src };
-      image.src = `${COVER_BASE}cover${index + 1}.png`;
+      const image = new Image();
+      image.onload = () => { coverCash[songTitle] = image.src };
+      image.src = `${COVER_BASE}${coverFileName}.png`;
     }
   });
 }
@@ -66,25 +58,65 @@ function loadPlaylist(playlist, index) { // функция будет прини
   playSong();
 }
 
-function loadSong(song) {
-  title.innerHTML = song;
-  audio.src = `${AUDIO_BASE}${song}.mp3`;
-  let tempIndex = allSongs.indexOf(song);
-  if (coverCash[song]) {
+function loadSong(songTitle) {
+  title.innerHTML = songTitle;
+  audio.src = `${AUDIO_BASE}${songTitle}.mp3`;
+  // классический способ получить slug (безопасное имя для URL или имени файла)
+  /* 
+    / / - просто пробел
+    g — флаг global = заменить все вхождения, а не только первое
+    '-' — на что заменяем - на дефис
+  */
+  /* 
+    / ... / - какое либо регулярное выражение
+    [^ ... ] - отрицание внутри квадратных скобок
+   «любой символ, кроме тех, что перечислены внутри»
+    a-z — все маленькие буквы от a до z
+    0-9 — все цифры от 0 до 9
+    /[^a-z0-9-]/ 
+    «любой символ, который не является маленькой буквой, цифрой или дефисом»
+    g — флаг global = заменить все вхождения, а не только первое
+    '' — на пустую строку (т.е. удалить)
+  */
+  const coverFileName = songTitle
+    .toLowerCase()
+    .replace(/ /g, '-')
+    .replace(/[^a-z0-9-]/g, '')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+    // /-+/g - символ дефиса (-), + (один или больше подряд)
+    // /^-|-$/ = «дефис в самом начале строки или дефис в самом конце строки»
+    // ^ — начало строки; $ — конец строк
+
+  if (coverCash[songTitle]) {
     // берем путь из КЕША картинки
-    cover.src = coverCash[song];
+    cover.src = coverCash[songTitle];
     // получаем путь картинки песни, ЕСЛИ картинка была успешно загружена
-  } else if (tempIndex !== -1) {
+  } else {
     // если же картинка еще не успела прогрузиться И она существует
     // то 
     cover.style.visibility = 'hidden';
     cover.onload = () => {
       cover.style.visibility = 'visible';
-      coverCash[song] = cover.src; // сохраняем путь кеша в самой кеш песне
+      coverCash[songTitle] = cover.src; // сохраняем путь кеша в самой кеш песне
     };
      // кладем путь в КЕШ картинки
-    cover.src = `${COVER_BASE}cover${tempIndex + 1}.png`;
+    cover.src = `${COVER_BASE}${coverFileName}.png`;
   }
+
+  // Явно запускаем загрузку нового источника
+  audio.load();
+
+  // Ждём, пока аудио сможет играть
+  audio.addEventListener('canplay', function onCanPlay() {
+    playSong();
+    audio.removeEventListener('canplay', onCanPlay);
+  }, { once: true });
+  /* 
+    «Слушай это событие только один раз. { once: true }
+    Как только событие сработает — сразу удали этот слушатель автоматически.
+    Не нужно вручную вызывать removeEventListener
+  */
 }
 
 // предзагружаем обложки при старте с самим кешированием
@@ -97,7 +129,16 @@ function playSong() {
   player.classList.add('play');
   cover.classList.add('active');
   imgSrc.src = 'icons/pause.png';
-  audio.play();
+
+  // Ждём, пока браузер сможет играть новый трек
+  const playPromise = audio.play();
+
+  if (playPromise !== undefined) {
+    playPromise.catch(error => {
+      // Если ошибка — просто логируем, не спамим консоль
+      console.warn('Не удалось сразу запустить воспроизведение:', error);
+    });
+  }
 }
 
 function pauseSong() {

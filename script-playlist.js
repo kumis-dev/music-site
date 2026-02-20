@@ -36,7 +36,7 @@ async function loadSongsFromServer() {
     // ожидаем json через json() -  получаем js объекты
     const songs = await response.json();
     songs.forEach(song => {
-      addSong(song.artist, song.title, song.id);
+      addSong(song.artist, song.title, song.id, song.liked);
     });
     if (songs.length > 0) renderHasSongs();
   } catch (error) {
@@ -62,17 +62,20 @@ function renderNoSongs() {
   noSongsElement.classList.remove('no-songs_hidden');
 }
 
-function addSong(artistValue, titleValue, id) {
+function addSong(artistValue, titleValue, id, liked = false) {
   const songTemplate = document.querySelector('#song-template').content;
   const songElement = songTemplate.querySelector('.song').cloneNode(true);
-  const songLike = songElement.querySelector('.song__like'); 
   // ищем внутри скопированного элемента
 
   songElement.querySelector('.song__artist').textContent = artistValue;
   songElement.querySelector('.song__title').textContent = titleValue;
-
   // dataset - это специальное свойство DOM элемента для хранения данных
   songElement.dataset.id = id;
+
+  const likeButton = songElement.querySelector('.song__like');
+  if (liked)
+    likeButton.classList.add('song__like_active');
+
   songsContainer.append(songElement);
 }
 
@@ -91,8 +94,6 @@ function getRandomElement(arr) {
   return arr[randomId];
 }
 
-
-
 async function keyHandler(event) {
   if (event.key === "Enter") {
     event.preventDefault();
@@ -108,9 +109,30 @@ async function keyHandler(event) {
   }
 }
 
-songsContainer.addEventListener('click', function (evt) {
+// ивент на лайк
+songsContainer.addEventListener('click', async function (evt) {
   if (evt.target.classList.contains('song__like')) { 
-    evt.target.classList.toggle('song__like_active');
+    const likeButton = evt.target;
+    // поднимаемся вверх и ищем ближайшую карточку с классом .song
+    // closest впринципе ищет ближайшего родителя с нужным названием
+    const songElement = likeButton.closest('.song');
+    const id = songElement.dataset.id;
+
+    // Переключаем визуально
+    likeButton.classList.toggle('song__like_active');
+    const newLiked = likeButton.classList.contains('song__like_active');
+
+    try {
+      const response = await fetch(API_URL + '/songs/' + id, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ liked: newLiked })
+      });
+    } catch (error) {
+      console.error('Ошибка сохранения лайка:', error);
+      // Откатываем визуальное состояние, если запрос упал
+      likeButton.classList.toggle('song__like_active');
+    }
   }
 });
 
