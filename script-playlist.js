@@ -34,7 +34,7 @@ async function loadSongsFromServer() {
     // ожидаем json через json() -  получаем js объекты
     const songs = await response.json();
     songs.forEach(song => {
-      addSong(song.artist, song.title);
+      addSong(song.artist, song.title, song.id);
     });
     if (songs.length > 0) renderHasSongs();
   } catch (error) {
@@ -60,7 +60,7 @@ function renderNoSongs() {
   noSongsElement.classList.remove('no-songs_hidden');
 }
 
-function addSong(artistValue, titleValue) {
+function addSong(artistValue, titleValue, id) {
   const songTemplate = document.querySelector('#song-template').content;
   const songElement = songTemplate.querySelector('.song').cloneNode(true);
   const songLike = songElement.querySelector('.song__like'); 
@@ -69,8 +69,8 @@ function addSong(artistValue, titleValue) {
   songElement.querySelector('.song__artist').textContent = artistValue;
   songElement.querySelector('.song__title').textContent = titleValue;
 
-  // songElement.querySelector('.song__like')
-
+  // dataset - это специальное свойство DOM элемента для хранения данных
+  songElement.dataset.id = id;
   songsContainer.append(songElement);
 }
 
@@ -135,10 +135,16 @@ function doubleClickHandler() {
 }
 coverHeading.addEventListener('dblclick', doubleClickHandler);
 
-resetButton.addEventListener('click', function () {
+resetButton.addEventListener('click', async function () {
   const songs = document.querySelectorAll('.song')
 
   for (let i = 0; i < songs.length; i++) {
+    const id = songs[i].dataset.id;
+    if (id) {
+      await fetch(API_URL + '/songs/' + id, {
+        method: 'DELETE'
+      });
+    }
     songs[i].remove();
   }
 
