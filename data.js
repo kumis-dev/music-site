@@ -102,7 +102,7 @@ const playlists = [
   {
     className: 'rock-gay-boys-playlist',
     name: 'Gay Boys Playlist',
-    cover: 'gayBoysPriors.png',
+    cover: 'rock-cover.png',
     songs: rockSongsForGayBoys,
     tracks: [
       'Slipopi - Vendetta',
@@ -117,7 +117,7 @@ const playlists = [
   {
     className: 'kamishin-vibe-playlist',
     name: 'Kamishin Vibe',
-    cover: 'kamishin-pop-vibe.png',
+    cover: 'pop-vibe.png',
     songs: kamishinVibeSongs,
     tracks: [
       'Atl - Youth',
