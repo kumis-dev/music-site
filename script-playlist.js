@@ -11,6 +11,37 @@ addButton.setAttribute('disabled', true);
 
 const API_URL = 'http://89.232.177.168:8080';
 
+// асинхронная функция (не ждать ответа)
+async function saveSongToServer(artist, title) {
+  try {
+    // гет запрос (fetch без доп параметров)
+    // пост запрос - url и само отправляемое тело
+    // подождать ответа от (await) post запроса внутри fetch
+    const response = await fetch(API_URL + '/songs', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ artist: artist, title: title })
+    });
+    return await response.json();
+  } catch (error) {
+    console.error('Ошибка сохранения песни в плейлист: ', error);
+  }
+}
+
+async function loadSongsFromServer() {
+  try {
+    const response = await fetch(API_URL + '/songs');
+    // ожидаем json через json() -  получаем js объекты
+    const songs = await response.json();
+    songs.forEach(song => {
+      addSong(song.artist, song.title);
+    });
+    if (songs.length > 0) renderHasSongs();
+  } catch (error) {
+    console.error('Ошибка загрузки: ', error);
+  }
+}
+
 const playListTitles = [
   'Билли Херингтон. Лучшее',
   'Музыка категории swallow suction',
@@ -66,6 +97,7 @@ function keyHandler(event) {
     // Добавляем ту же проверку, что и для кнопки
     if (artist.value.length > 0 && title.value.length > 0) {
       addSong(artist.value, title.value);
+      saveSongToServer(artist.value, title.value);
       renderHasSongs();
       form.reset();
       setSubmitButtonState(false);
@@ -81,12 +113,11 @@ songsContainer.addEventListener('click', function (evt) {
 });
 
 form.addEventListener('submit', function (evt) {
-  addSong(artist.value, title.value);
-  renderHasSongs();
-
-  form.reset();
-
   evt.preventDefault();
+  addSong(artist.value, title.value);
+  saveSongToServer(artist.value, title.value);
+  renderHasSongs();
+  form.reset();
   setSubmitButtonState(false);
 });
 
@@ -114,23 +145,4 @@ resetButton.addEventListener('click', function () {
   renderNoSongs();
 });
 
-
-/* function addSongV2(artistValue, titleValue) {
-  let trackContainer = document.createElement('div');
-  trackContainer.classList.add('song');
-
-  let artistElement = document.createElement('h4');
-  artistElement.classList.add('song__artist');
-  artistElement.textContent = artistValue;
-
-  let songElement = document.createElement('h4');
-  songElement.classList.add('song__title');
-  songElement.textContent = titleValue;
-
-  let likeButtonElement = document.createElement('button');
-  likeButtonElement.classList.add('song__like');
-
-  // собираем контейнер элементов в один список
-  trackContainer.append(artistElement, songElement, likeButtonElement);
-  songsContainer.append(trackContainer);
-} */
+loadSongsFromServer();
