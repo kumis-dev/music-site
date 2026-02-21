@@ -1,360 +1,423 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
+  <head>
+    <title>Blacktube</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Блектуб - конкурент ютубу для черных" />
+    <meta property="og:title" content="Blacktube" />
+    <meta property="og:url" content="http://blacktube.duckdns.org/" />
+    <meta property="og:image" content="favicons/youtube.png" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="favicons/youtube.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="'https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles-youtube/general.css" />
+    <link rel="stylesheet" href="styles-youtube/header.css" />
+    <link rel="stylesheet" href="styles-youtube/video.css" />
+    <link rel="stylesheet" href="styles-youtube/sidebar.css" />
+  </head>
 
-<head>
-  <title>Blacktube</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Блектуб - конкурент ютубу для черных" />
-  <meta property="og:title" content="Blacktube">
-  <meta property="og:url" content="http://blacktube.duckdns.org/">
-  <meta property="og:image" content="favicons/youtube.png">
-  <meta property="twitter:card" content="summary_large_image">
-  <link rel="icon" href="favicons/youtube.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="'https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles-youtube/general.css">
-  <link rel="stylesheet" href="styles-youtube/header.css">
-  <link rel="stylesheet" href="styles-youtube/video.css">
-  <link rel="stylesheet" href="styles-youtube/sidebar.css">
-</head>
+  <body>
+    <!-- шапка веб сайта -->
+    <header class="header">
+      <div class="left_section">
+        <!-- <img class="hamburger-menu" src="icons/hamburger-menu.svg"> -->
+        <button id="menu-toggle" class="menu-toggle">
+          <img
+            class="hamburger-menu"
+            src="icons/hamburger-menu.svg"
+            alt="Menu"
+          />
+        </button>
+        <a href="https://rt.pornhub.com/gayporn" target="_blank">
+          <img class="youtube-logo" src="icons/GayTube.svg" />
+        </a>
+      </div>
+      <div class="middle_section">
+        <input class="search-bar" type="text" placeholder="Search" />
+        <button class="search-button">
+          <a href="https://www.xvideos.com/gay" target="_blank">
+            <img class="search-icon" src="icons/search.svg" />
+          </a>
+          <div class="tooltip">Search</div>
+        </button>
+        <button class="voice-search-button">
+          <a href="https://www.xvideos.com/gay" target="_blank">
+            <img class="voice-search-icon" src="icons/voice-search-icon.svg" />
+          </a>
+          <div class="tooltip">Search with your voice</div>
+        </button>
+      </div>
+      <div class="right_section">
+        <div class="upload-icon-container">
+          <a href="https://info.xvideos.net/" target="_blank">
+            <img class="upload-icon" src="icons/upload.svg" />
+            <div class="tooltip">Create</div>
+          </a>
+        </div>
+        <div class="youtube-apps-icon-container">
+          <a href="https://www.xvideos.com/gay" target="_blank">
+            <img class="youtube-apps-icon" src="icons/youtube-apps.svg" />
+            <div class="tooltip">Apps</div>
+          </a>
+        </div>
+        <div class="notifications-icon-container">
+          <a href="https://www.xvideos.com/gay-men">
+            <img class="notifications-icon" src="icons/notifications.svg" />
+            <div class="notifications-count">3</div>
+            <div class="tooltip">Notifications</div>
+          </a>
+        </div>
+        <div class="notifications-icon-container">
+          <a href="https://www.xvideos.red/gay" target="_blank">
+            <img
+              class="channel-user-picture"
+              src="https://music-site-files.s3.cloud.ru/channel-pictures/kazah-tahir.png"
+            />
+          </a>
+        </div>
+      </div>
+    </header>
 
-<body>
-  <!-- шапка веб сайта -->
-  <header class="header">
-    <div class="left_section">
-      <!-- <img class="hamburger-menu" src="icons/hamburger-menu.svg"> -->
-      <button id="menu-toggle" class="menu-toggle">
-        <img class="hamburger-menu" src="icons/hamburger-menu.svg" alt="Menu">
-      </button>
-      <a href="https://rt.pornhub.com/gayporn" target="_blank">
-        <img class="youtube-logo" src="icons/GayTube.svg">
+    <nav class="sidebar" id="sidebar">
+      <a
+        class="sidebar-link"
+        href="https://www.xvideos.com/gay"
+        target="_blank"
+      >
+        <img src="icons/home.svg" />
+        <div class="side-buttons">Home</div>
       </a>
-    </div>
-    <div class="middle_section">
-      <input class="search-bar" type="text" placeholder="Search">
-      <button class="search-button">
-        <a href="https://www.xvideos.com/gay" target="_blank">
-          <img class="search-icon" src="icons/search.svg">
-        </a>
-        <div class="tooltip">Search</div>
-      </button>
-      <button class="voice-search-button">
-        <a href="https://www.xvideos.com/gay" target="_blank">
-          <img class="voice-search-icon" src="icons/voice-search-icon.svg">
-        </a>
-        <div class="tooltip">Search with
-          your voice
-        </div>
-      </button>
-    </div>
-    <div class="right_section">
-      <div class="upload-icon-container">
-        <a href="https://info.xvideos.net/" target="_blank">
-          <img class="upload-icon" src="icons/upload.svg">
-          <div class="tooltip">Create</div>
-        </a>
+      <a
+        class="sidebar-link"
+        href="https://www.xvideos.com/gay"
+        target="_blank"
+      >
+        <img src="icons/explore.svg" />
+        <div class="side-buttons">Explore</div>
+      </a>
+      <a
+        class="sidebar-link"
+        href="https://www.xvideos.com/my-feed"
+        target="_blank"
+      >
+        <img
+          src="icons/subscriptions.svg"
+          alt="Gay subs"
+          class="sidebar-link__icon"
+        />
+        <div class="side-buttons">Gay subs</div>
+      </a>
+      <a
+        class="sidebar-link"
+        href="https://www.xvideos.com/?k=fury+anime&related"
+        target="_blank"
+      >
+        <img src="icons/originals.svg" />
+        <div class="side-buttons">Gay Section</div>
+      </a>
+      <a class="sidebar-link" href="playlist.html" target="_blank">
+        <img src="icons/youtube-music.svg" alt="" />
+        <div class="side-buttons">GayTube Music</div>
+      </a>
+      <div class="sidebar-link" id="change-videos-block">
+        <img class="change-videos" src="icons/library.svg" />
+        <div class="side-buttons">Change videos</div>
       </div>
-      <div class="youtube-apps-icon-container">
-        <a href="https://www.xvideos.com/gay" target="_blank">
-          <img class="youtube-apps-icon" src="icons/youtube-apps.svg">
-          <div class="tooltip">Apps</div>
-        </a>
+      <div class="sidebar-link" id="change-prewiew-block">
+        <img class="change-preview" src="icons/refresh.svg" />
+        <div class="side-buttons">Change preview</div>
       </div>
-      <div class="notifications-icon-container">
-        <a href="https://www.xvideos.com/gay-men">
-          <img class="notifications-icon" src="icons/notifications.svg">
-          <div class="notifications-count">3</div>
-          <div class="tooltip">Notifications</div>
-        </a>
-      </div>
-      <div class="notifications-icon-container">
-        <a href="https://www.xvideos.red/gay" target="_blank">
-          <img class="channel-user-picture" src="https://music-site-files.s3.cloud.ru/channel-pictures/kazah-tahir.png">
-        </a>
-      </div>
-    </div>
-  </header>
+    </nav>
 
-  <nav class="sidebar" id="sidebar">
-    <a class="sidebar-link" href="https://www.xvideos.com/gay" target="_blank">
-      <img src="icons/home.svg">
-      <div class="side-buttons">Home</div>
-    </a>
-    <a class="sidebar-link" href="https://www.xvideos.com/gay" target="_blank">
-      <img src="icons/explore.svg">
-      <div class="side-buttons">Explore</div>
-    </a>
-    <a class="sidebar-link" href="https://www.xvideos.com/my-feed" target="_blank">
-      <img src="icons/subscriptions.svg" alt="Gay subs" class="sidebar-link__icon">
-      <div class="side-buttons">Gay subs</div>
-    </a>
-    <a class="sidebar-link" href="https://www.xvideos.com/?k=fury+anime&related" target="_blank">
-      <img src="icons/originals.svg">
-      <div class="side-buttons">Gay Section</div>
-    </a>
-    </div>
-    <a class="sidebar-link" href="playlist.html" target="_blank">
-      <img src="icons/youtube-music.svg" alt="">
-      <div class="side-buttons">GayTube Music</div>
-    </a>
-    <div class="sidebar-link" id="change-videos-block">
-      <img class="change-videos" src="icons/library.svg">
-      <div class="side-buttons">Change videos</div>
-    </div>
-    <div class="sidebar-link" id="change-prewiew-block">
-      <img class="change-preview" src="icons/refresh.svg">
-      <div class="side-buttons">Change preview</div>
-    </div>
-  </nav>
-
-  <main class="main-content">
-    <section class="video-grid">
-      <div class="video-preview">
-        <div class="thumbnail-row">
-          <a href="https://www.xv-ru.com/video.hdhmkfb562d/_" target="_blank">
-            <img class="preview-video" src="https://music-site-files.s3.cloud.ru/thumbnails/superdag.jpg">
-          </a>
-          <div class="video-time">14:20</div>
-        </div>
-        <div class="video-info-grid">
-          <div class="channel-picture">
-            <div class="channel-picture-container">
-              <a href="https://www.youtube.com/@sugarsvyat" target="_blank">
-                <img class="thumbnail-sultan" src="https://music-site-files.s3.cloud.ru/channel-pictures/courier.png">
-              </a>
-              <div class="channel-tooltip">
-                <img class="channel-tooltip-picture" src="https://music-site-files.s3.cloud.ru/channel-pictures/courier.png">
-                <div>
-                  <div class="channel-tooltip-name">
-                    Будни Дагестана
-                  </div>
-                  <div class="channel-tooltip-stats">
-                    17 подписчиков
+    <main class="main-content">
+      <section class="video-grid">
+        <div class="video-preview">
+          <div class="thumbnail-row">
+            <a href="https://www.xv-ru.com/video.hdhmkfb562d/_" target="_blank">
+              <img
+                class="preview-video"
+                src="https://music-site-files.s3.cloud.ru/thumbnails/superdag.jpg"
+              />
+            </a>
+            <div class="video-time">14:20</div>
+          </div>
+          <div class="video-info-grid">
+            <div class="channel-picture">
+              <div class="channel-picture-container">
+                <a href="https://www.youtube.com/@sugarsvyat" target="_blank">
+                  <img
+                    class="thumbnail-sultan"
+                    src="https://music-site-files.s3.cloud.ru/channel-pictures/courier.png"
+                  />
+                </a>
+                <div class="channel-tooltip">
+                  <img
+                    class="channel-tooltip-picture"
+                    src="https://music-site-files.s3.cloud.ru/channel-pictures/courier.png"
+                  />
+                  <div>
+                    <div class="channel-tooltip-name">Будни Дагестана</div>
+                    <div class="channel-tooltip-stats">17 подписчиков</div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="video-info">
-            <p class="video-title">
-              Повесим курьера за 15 минут или вернем деньги
-            </p>
-            <p class="video-author">
-              Будни Дагестана
-            </p>
-            <p class="video-stats">
-              2 views &#183; 6 years ago
-            </p>
+            <div class="video-info">
+              <p class="video-title">
+                Повесим курьера за 15 минут или вернем деньги
+              </p>
+              <p class="video-author">Будни Дагестана</p>
+              <p class="video-stats">2 views &#183; 6 years ago</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="video-preview">
-        <div class="thumbnail-row">
-          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
-            <img class="preview-video" src="https://music-site-files.s3.cloud.ru/thumbnails/uzbeki-smoke.png">
-          </a>
-          <div class="video-time">29:50</div>
-        </div>
-        <div class="video-info-grid">
-          <div class="channel-picture">
-            <div class="channel-picture-container">
-              <a href="https://www.youtube.com/@BratishkinRofls" target="_blank">
-                <img class="thumbnail-sultan" src="https://music-site-files.s3.cloud.ru/channel-pictures/gosuslugi.png">
-              </a>
-              <div class="channel-tooltip">
-                <img class="channel-tooltip-picture" src="https://music-site-files.s3.cloud.ru/channel-pictures/gosuslugi.png">
-                <div>
-                  <div class="channel-tooltip-name">
-                    Госуслуги
-                  </div>
-                  <div class="channel-tooltip-stats">
-                    8B подписчиков
+        <div class="video-preview">
+          <div class="thumbnail-row">
+            <a
+              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              target="_blank"
+            >
+              <img
+                class="preview-video"
+                src="https://music-site-files.s3.cloud.ru/thumbnails/uzbeki-smoke.png"
+              />
+            </a>
+            <div class="video-time">29:50</div>
+          </div>
+          <div class="video-info-grid">
+            <div class="channel-picture">
+              <div class="channel-picture-container">
+                <a
+                  href="https://www.youtube.com/@BratishkinRofls"
+                  target="_blank"
+                >
+                  <img
+                    class="thumbnail-sultan"
+                    src="https://music-site-files.s3.cloud.ru/channel-pictures/gosuslugi.png"
+                  />
+                </a>
+                <div class="channel-tooltip">
+                  <img
+                    class="channel-tooltip-picture"
+                    src="https://music-site-files.s3.cloud.ru/channel-pictures/gosuslugi.png"
+                  />
+                  <div>
+                    <div class="channel-tooltip-name">Госуслуги</div>
+                    <div class="channel-tooltip-stats">8B подписчиков</div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="video-info">
-            <p class="video-title">
-              Наш мир ВСЁ - британские ученые подписали
-              британских ученых на Госуслуги
-            </p>
-            <p class="video-author">
-              Госуслуги
-            </p>
-            <p class="video-stats">
-              2.45B views &#183; 2 months ago
-            </p>
+            <div class="video-info">
+              <p class="video-title">
+                Наш мир ВСЁ - британские ученые подписали британских ученых на
+                Госуслуги
+              </p>
+              <p class="video-author">Госуслуги</p>
+              <p class="video-stats">2.45B views &#183; 2 months ago</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="video-preview">
-        <div class="thumbnail-row">
-          <a href="https://www.xv-ru.com/video.kkbudco2cae/_" target="_blank">
-            <img class="preview-video" src="https://music-site-files.s3.cloud.ru/channel-pictures/baranoebi.webp">
-          </a>
-          <div class="video-time">29:50</div>
-        </div>
-        <div class="video-info-grid">
-          <div class="channel-picture">
-            <div class="channel-picture-container">
-              <a href="https://www.youtube.com/@best_t2x2" target="_blank">
-                <img class="thumbnail-sultan" src="https://music-site-files.s3.cloud.ru/channel-pictures/baranoebi.webp">
-              </a>
-              <div class="channel-tooltip">
-                <img class="channel-tooltip-picture" src="https://music-site-files.s3.cloud.ru/channel-pictures/baranoebi.webp">
-                <div>
-                  <div class="channel-tooltip-name">
-                    Хасавюрт Андеграунд
-                  </div>
-                  <div class="channel-tooltip-stats">
-                    126.787 подписчиков
+        <div class="video-preview">
+          <div class="thumbnail-row">
+            <a href="https://www.xv-ru.com/video.kkbudco2cae/_" target="_blank">
+              <img
+                class="preview-video"
+                src="https://music-site-files.s3.cloud.ru/channel-pictures/baranoebi.webp"
+              />
+            </a>
+            <div class="video-time">29:50</div>
+          </div>
+          <div class="video-info-grid">
+            <div class="channel-picture">
+              <div class="channel-picture-container">
+                <a href="https://www.youtube.com/@best_t2x2" target="_blank">
+                  <img
+                    class="thumbnail-sultan"
+                    src="https://music-site-files.s3.cloud.ru/channel-pictures/baranoebi.webp"
+                  />
+                </a>
+                <div class="channel-tooltip">
+                  <img
+                    class="channel-tooltip-picture"
+                    src="https://music-site-files.s3.cloud.ru/channel-pictures/baranoebi.webp"
+                  />
+                  <div>
+                    <div class="channel-tooltip-name">Хасавюрт Андеграунд</div>
+                    <div class="channel-tooltip-stats">126.787 подписчиков</div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="video-info">
-            <p class="video-title">
-              Хасавюрт в опасности , парни выдвигаемся
-            </p>
-            <p class="video-author">
-              Хасавюрт Андеграунд
-            </p>
-            <p class="video-stats">
-              879.991 views &#183; 4 months ago
-            </p>
+            <div class="video-info">
+              <p class="video-title">
+                Хасавюрт в опасности , парни выдвигаемся
+              </p>
+              <p class="video-author">Хасавюрт Андеграунд</p>
+              <p class="video-stats">879.991 views &#183; 4 months ago</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="video-preview">
-        <div class="thumbnail-row">
-          <a href="https://www.xv-ru.com/video.udptvovcb77/_." target="_blank">
-            <img class="preview-video" src="https://music-site-files.s3.cloud.ru/thumbnails/uzbeki.png">
-          </a>
-          <div class="video-time">1:09:23</div>
-        </div>
-        <div class="video-info-grid">
-          <div class="channel-picture">
-            <div class="channel-picture-container">
-              <a href="https://www.youtube.com/@stint.narezki" target="_blank">
-                <img class="thumbnail-sultan" src="https://music-site-files.s3.cloud.ru/channel-pictures/kazah-tahir.png">
-              </a>
-              <div class="channel-tooltip">
-                <img class="channel-tooltip-picture" src="https://music-site-files.s3.cloud.ru/channel-pictures/kazah-tahir.png">
-                <div>
-                  <div class="channel-tooltip-name">
-                    Тахир Тастахаев
-                  </div>
-                  <div class="channel-tooltip-stats">
-                    1.2M подписчиков
+        <div class="video-preview">
+          <div class="thumbnail-row">
+            <a
+              href="https://www.xv-ru.com/video.udptvovcb77/_."
+              target="_blank"
+            >
+              <img
+                class="preview-video"
+                src="https://music-site-files.s3.cloud.ru/thumbnails/uzbeki.png"
+              />
+            </a>
+            <div class="video-time">1:09:23</div>
+          </div>
+          <div class="video-info-grid">
+            <div class="channel-picture">
+              <div class="channel-picture-container">
+                <a
+                  href="https://www.youtube.com/@stint.narezki"
+                  target="_blank"
+                >
+                  <img
+                    class="thumbnail-sultan"
+                    src="https://music-site-files.s3.cloud.ru/channel-pictures/kazah-tahir.png"
+                  />
+                </a>
+                <div class="channel-tooltip">
+                  <img
+                    class="channel-tooltip-picture"
+                    src="https://music-site-files.s3.cloud.ru/channel-pictures/kazah-tahir.png"
+                  />
+                  <div>
+                    <div class="channel-tooltip-name">Тахир Тастахаев</div>
+                    <div class="channel-tooltip-stats">1.2M подписчиков</div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="video-info">
-            <p class="video-title">
-              Экономика Узбекистана в 1 предложении
-            </p>
-            <p class="video-author">
-              Тахир Тастахаев
-            </p>
-            <p class="video-stats">
-              16.2M views &#183; 1 month ago
-            </p>
+            <div class="video-info">
+              <p class="video-title">Экономика Узбекистана в 1 предложении</p>
+              <p class="video-author">Тахир Тастахаев</p>
+              <p class="video-stats">16.2M views &#183; 1 month ago</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="video-preview">
-        <div class="thumbnail-row">
-          <a href="https://www.xv-ru.com/video.otdimmbbde0/_-_" target="_blank">
-            <img class="preview-video" src="https://music-site-files.s3.cloud.ru/thumbnails/200ton-uzbeki.png">
-          </a>
-          <div class="video-time">12:21</div>
-        </div>
-        <div class="video-info-grid">
-          <div class="channel-picture">
-            <div class="channel-picture-container">
-              <a href="https://www.youtube.com/@BitueOgurcu" target="_blank">
-                <img class="thumbnail-sultan" src="https://music-site-files.s3.cloud.ru/channel-pictures/alik-injir.png">
-              </a>
-              <div class="channel-tooltip">
-                <img class="channel-tooltip-picture" src="https://music-site-files.s3.cloud.ru/channel-pictures/alik-injir.png">
-                <div>
-                  <div class="channel-tooltip-name">
-                    Алик Инжир
-                  </div>
-                  <div class="channel-tooltip-stats">
-                    4.7M подписчиков
+        <div class="video-preview">
+          <div class="thumbnail-row">
+            <a
+              href="https://www.xv-ru.com/video.otdimmbbde0/_-_"
+              target="_blank"
+            >
+              <img
+                class="preview-video"
+                src="https://music-site-files.s3.cloud.ru/thumbnails/200ton-uzbeki.png"
+              />
+            </a>
+            <div class="video-time">12:21</div>
+          </div>
+          <div class="video-info-grid">
+            <div class="channel-picture">
+              <div class="channel-picture-container">
+                <a href="https://www.youtube.com/@BitueOgurcu" target="_blank">
+                  <img
+                    class="thumbnail-sultan"
+                    src="https://music-site-files.s3.cloud.ru/channel-pictures/alik-injir.png"
+                  />
+                </a>
+                <div class="channel-tooltip">
+                  <img
+                    class="channel-tooltip-picture"
+                    src="https://music-site-files.s3.cloud.ru/channel-pictures/alik-injir.png"
+                  />
+                  <div>
+                    <div class="channel-tooltip-name">Алик Инжир</div>
+                    <div class="channel-tooltip-stats">4.7M подписчиков</div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="video-info">
-            <p class="video-title">
-              Вы доигрались, сегодня мы отомстим за Саида
-            </p>
-            <p class="video-author">
-              Алик Инжир
-            </p>
-            <p class="video-stats">
-              345.789 views &#183; 4 hours ago
-            </p>
+            <div class="video-info">
+              <p class="video-title">
+                Вы доигрались, сегодня мы отомстим за Саида
+              </p>
+              <p class="video-author">Алик Инжир</p>
+              <p class="video-stats">345.789 views &#183; 4 hours ago</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="video-preview">
-        <div class="thumbnail-row">
-          <a href="https://www.xv-ru.com/video.otamoid0af4/_" target="_blank">
-            <img class="preview-video" src="https://music-site-files.s3.cloud.ru/thumbnails/africa.png">
-          </a>
-          <div class="video-time">11:21</div>
-        </div>
-        <div class="video-info-grid">
-          <div class="channel-picture">
-            <div class="channel-picture-container">
-              <a href="https://www.youtube.com/@SHAPKA99" target="_blank">
-                <img class="thumbnail-sultan" src="https://music-site-files.s3.cloud.ru/channel-pictures/magnat.png">
-              </a>
-              <div class="channel-tooltip">
-                <img class="channel-tooltip-picture" src="https://music-site-files.s3.cloud.ru/channel-pictures/magnat.png">
-                <div>
-                  <div class="channel-tooltip-name">
-                    Mr.Beast
-                  </div>
-                  <div class="channel-tooltip-stats">
-                    399.0M подписчиков
+        <div class="video-preview">
+          <div class="thumbnail-row">
+            <a href="https://www.xv-ru.com/video.otamoid0af4/_" target="_blank">
+              <img
+                class="preview-video"
+                src="https://music-site-files.s3.cloud.ru/thumbnails/africa.png"
+              />
+            </a>
+            <div class="video-time">11:21</div>
+          </div>
+          <div class="video-info-grid">
+            <div class="channel-picture">
+              <div class="channel-picture-container">
+                <a href="https://www.youtube.com/@SHAPKA99" target="_blank">
+                  <img
+                    class="thumbnail-sultan"
+                    src="https://music-site-files.s3.cloud.ru/channel-pictures/magnat.png"
+                  />
+                </a>
+                <div class="channel-tooltip">
+                  <img
+                    class="channel-tooltip-picture"
+                    src="https://music-site-files.s3.cloud.ru/channel-pictures/magnat.png"
+                  />
+                  <div>
+                    <div class="channel-tooltip-name">Mr.Beast</div>
+                    <div class="channel-tooltip-stats">399.0M подписчиков</div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="video-info">
-            <p class="video-title">
-              Ахуевшие негры забирают у хозяина последний глоток воды
-            </p>
-            <p class="video-author">
-              Mr.Beast
-            </p>
-            <p class="video-stats">
-              356.2M views &#183; 5 months ago
-            </p>
+            <div class="video-info">
+              <p class="video-title">
+                Ахуевшие негры забирают у хозяина последний глоток воды
+              </p>
+              <p class="video-author">Mr.Beast</p>
+              <p class="video-stats">356.2M views &#183; 5 months ago</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    <script src="data.js"></script>
-    <script src="https://code.s3.yandex.net/web-code/smoothly.js"></script>
-    <script src="script.js"></script>
-  </main>
-</body>
-
+        <iframe
+          width="314"
+          height="178"
+          src="https://www.youtube.com/embed/k45hNLC2xU8"
+          title="YouTube video player"
+          frameborder="0"
+          allow="
+            accelerometer;
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            gyroscope;
+            picture-in-picture;
+            web-share;
+          "
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        >
+        </iframe>
+      </section>
+      <script src="data.js"></script>
+      <script src="https://code.s3.yandex.net/web-code/smoothly.js"></script>
+      <script src="script.js"></script>
+    </main>
+  </body>
 </html>
