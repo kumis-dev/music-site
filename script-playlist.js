@@ -11,7 +11,7 @@ addButton.setAttribute('disabled', true);
 
 const API_URL = window.location.hostname === 'localhost' 
     ? 'http://localhost:8080' 
-    : '/api';
+    : '';
 
 // асинхронная функция (не ждать ответа)
 async function saveSongToServer(artist, title) {
