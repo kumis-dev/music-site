@@ -55,7 +55,14 @@ function loadPlaylist(playlist, index) { // функция будет прини
   preLoadAudio(currentPlaylist);
 
   loadSong(currentPlaylist[songIndex]);
-  playSong();
+  // Ждём, пока аудио сможет играть
+  audio.addEventListener('canplay', () => playSong(), { once: true });
+  /* 
+    «Слушай это событие только один раз. { once: true }
+    Как только событие сработает — сразу удали этот слушатель автоматически.
+    Не нужно вручную вызывать removeEventListener
+    audio.removeEventListener('canplay', onCanPlay);
+  */
 }
 
 function loadSong(songTitle) {
@@ -106,17 +113,6 @@ function loadSong(songTitle) {
 
   // Явно запускаем загрузку нового источника
   audio.load();
-
-  // Ждём, пока аудио сможет играть
-  audio.addEventListener('canplay', function onCanPlay() {
-    playSong();
-    audio.removeEventListener('canplay', onCanPlay);
-  }, { once: true });
-  /* 
-    «Слушай это событие только один раз. { once: true }
-    Как только событие сработает — сразу удали этот слушатель автоматически.
-    Не нужно вручную вызывать removeEventListener
-  */
 }
 
 // предзагружаем обложки при старте с самим кешированием
@@ -167,7 +163,8 @@ function changeSong(choice) {
   }
   loadSong(currentPlaylist[songIndex]);
   preLoadAudio(currentPlaylist);
-  playSong();
+  // ждём загрузку, потом играем
+  audio.addEventListener('canplay', () => playSong(), { once: true });
 }
 
 function mixUp() {
