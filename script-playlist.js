@@ -9,9 +9,12 @@ const artist = form.elements.artist;
 const title = form.elements.title;
 addButton.setAttribute('disabled', true);
 
-const API_URL = window.location.hostname === 'localhost' 
-    ? 'http://localhost:8080' 
-    : '/api';
+const API_URL =
+  window.location.hostname === 'localhost'
+    ? 'http://localhost:8080'
+    : window.location.hostname === 'blacktube.duckdns.org'
+      ? '/api'
+      : 'https://blacktube.duckdns.org/api';
 
 // асинхронная функция (не ждать ответа)
 async function saveSongToServer(artist, title) {
