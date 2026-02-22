@@ -11,7 +11,7 @@ body {
 }
 
 .playlist-titles {
-  background-color: white;
+  background-color: rgb(233, 187, 142);
   border-radius: 15px;
   padding: 15px;
   list-style: decimal;
