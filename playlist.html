@@ -4,10 +4,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="GayTube Music - конкурент Yotube Music для фанатов гориллаз" />
+    <meta
+      name="description"
+      content="GayTube Music - конкурент Yotube Music для фанатов гориллаз"
+    />
     <meta property="og:title" content="GayTube Music" />
-    <meta property="og:url" content="https://blacktube.duckdns.org/playlist.html" />
-    <meta property="og:image" content="https://blacktube.duckdns.org/favicons/music-logo.png" />
+    <meta
+      property="og:url"
+      content="https://blacktube.duckdns.org/playlist.html"
+    />
+    <meta
+      property="og:image"
+      content="https://blacktube.duckdns.org/favicons/music-logo.png"
+    />
     <meta property="twitter:card" content="summary_large_image" />
     <link rel="icon" href="favicons/music-logo.png" />
     <link rel="stylesheet" href="styles-playlist/playlist.css" />
@@ -46,45 +55,49 @@
           width="100%"
           height="498"
         ></iframe>
+       
+        </section>
       </div>
 
-      <div class="block">
-        <form name="add">
-          <h3>Добавить песню</h3>
-          <div class="input">
-            <input
-              type="text"
-              name="title"
-              placeholder="Название"
-              class="input__text input__text_type_title"
-            />
-            <input
-              type="text"
-              name="artist"
-              placeholder="Исполнитель"
-              class="input__text input__text_type_artist"
-            />
+      <div class="music__blocks">
+        <div class="block">
+          <form name="add">
+            <h3>Добавить песню</h3>
+            <div class="input">
+              <input
+                type="text"
+                name="title"
+                placeholder="Название"
+                class="input__text input__text_type_title"
+              />
+              <input
+                type="text"
+                name="artist"
+                placeholder="Исполнитель"
+                class="input__text input__text_type_artist"
+              />
+              <button
+                class="input__btn input__btn_action_add input__btn_disabled"
+              >
+                Добавить
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="block">
+          <h3>Добавленные</h3>
+          <div class="no-songs">
+            <p class="no-songs__text">Нет добавленных песен</p>
+          </div>
+          <div class="songs-container"></div>
+          <div class="input__submit">
             <button
-              class="input__btn input__btn_action_add input__btn_disabled"
+              class="input__btn input__btn_action_reset input__btn_disabled"
+              disabled
             >
-              Добавить
+              Очистить плейлист
             </button>
           </div>
-        </form>
-      </div>
-      <div class="block">
-        <h3>Добавленные</h3>
-        <div class="no-songs">
-          <p class="no-songs__text">Нет добавленных песен</p>
-        </div>
-        <div class="songs-container"></div>
-        <div class="input__submit">
-          <button
-            class="input__btn input__btn_action_reset input__btn_disabled"
-            disabled
-          >
-            Очистить плейлист
-          </button>
         </div>
       </div>
     </main>

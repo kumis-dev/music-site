@@ -5,16 +5,18 @@
   font-family: Roboto, Arial;
 }
 
-.wrapper {
-  height: 100vh;
+body {
+  margin: 0;
   width: 100%;
   display: flex;
-  
-  background: #E4E9ED;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: rgb(205, 127, 50);
 }
 
 .player {
-  background: #EFF3F5;
+  background: rgb(236, 157, 78);
   border-radius: 30px;
   max-width: 380px;
   width: 100%;

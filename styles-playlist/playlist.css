@@ -1,10 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   margin: 0;
   padding: 0;
-  background-color: #E4E9ED;
+  background-color: rgb(245, 235, 220);
 }
 
 input,
@@ -65,6 +69,7 @@ button {
 
 .block {
   margin-top: 60px;
+  margin-bottom: 20px;
   border-radius: 3px;
 }
 
@@ -191,6 +196,14 @@ h3 {
   font-size: 16px;
   line-height: 1.6;
 
+}
+
+.music {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 900px;
+  margin: 0 auto;
+  gap: 50px;
 }
 
 .other-htmls {

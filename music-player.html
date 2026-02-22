@@ -1,22 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="music-player.css" />
+    <title>Musical Player</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="music-player.css">
-  <title>Musical Player</title>
-</head>
-
-<body>
-  <div class="wrapper">
+  <body>
     <div class="player">
       <div class="title">Now Playing</div>
 
       <div class="cover">
-        <img class="cover__img" src="https://music-site-files.s3.cloud.ru/channel-pictures/kazah-tahir.png" alt="cover">
+        <img
+          class="cover__img"
+          src="https://music-site-files.s3.cloud.ru/channel-pictures/kazah-tahir.png"
+          alt="cover"
+        />
       </div>
       <div class="song">Duality</div>
       <audio class="audio"></audio>
@@ -25,20 +30,24 @@
       </div>
       <div class="buttons">
         <div class="control-buttons">
-          <div class="btn prev"> <img src="icons/free-icon-previous-18407650.png"> </div>
-          <div class="btn play"> <img class="img__src" src="icons/play.png"> </div>
-          <div class="btn next"> <img src="icons/free-icon-next-18407649.png"> </div>
+          <div class="btn prev">
+            <img src="icons/free-icon-previous-18407650.png" />
+          </div>
+          <div class="btn play">
+            <img class="img__src" src="icons/play.png" />
+          </div>
+          <div class="btn next">
+            <img src="icons/free-icon-next-18407649.png" />
+          </div>
         </div>
       </div>
       <div class="sub-buttons">
-        <div class="btn mix"> <img src="icons/mix.png"></div>
-        <div class="btn repeat"> <img src="icons/repeat.png"></div>
+        <div class="btn mix"><img src="icons/mix.png" /></div>
+        <div class="btn repeat"><img src="icons/repeat.png" /></div>
       </div>
     </div>
-  </div>
-  
-  <script src="data.js"></script>
-  <script type="module" src="music-player.js"></script>
-</body>
 
+    <script src="data.js"></script>
+    <script type="module" src="music-player.js"></script>
+  </body>
 </html>
