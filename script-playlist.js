@@ -4,6 +4,8 @@ const addButton = container.querySelector('.input__btn_action_add');
 const resetButton = container.querySelector('.input__btn_action_reset');
 const noSongsElement = container.querySelector('.no-songs');
 const coverHeading = document.querySelector('.cover__heading');
+const toggle = document.getElementById('layout-toggle');
+const otherHtmls = document.querySelector('.other-htmls');
 const form = document.forms.add;
 const artist = form.elements.artist;
 const title = form.elements.title;
@@ -176,5 +178,12 @@ resetButton.addEventListener('click', async function () {
 
   renderNoSongs();
 });
+
+if (toggle && otherHtmls) {
+  toggle.addEventListener('click', () => {
+    otherHtmls.classList.toggle('left-mode');
+    otherHtmls.classList.toggle('right-mode');
+  })
+}
 
 loadSongsFromServer();

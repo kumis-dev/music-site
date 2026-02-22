@@ -198,14 +198,6 @@ h3 {
 
 }
 
-.music {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  max-width: 900px;
-  margin: 0 auto;
-  gap: 50px;
-}
-
 .other-htmls {
   display: flex;
   flex-direction: row;
@@ -230,6 +222,49 @@ h3 {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+.layout-toggle {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .layout-toggle {
+    display: block;
+    position: absolute;
+    top: 8px;
+    left: 3px;
+    z-index: 10;
+    background: transparent;
+    border-radius: 50%;
+  }
+
+  .container {
+    max-width: none;
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .html__music__player,
+  .html__music__playlist {
+    max-width: none;
+    width: 100% !important;
+    min-width: 0;
+  }
+
+  .other-htmls {
+    position: relative;
+  }
+
+  /* режим: показываем только player */
+  .left-mode #playlistFrame {
+    display: none;
+  }
+
+  /* режим: показываем только playlist */
+  .right-mode #playerFrame {
+    display: none;
+  }
 }
 
 @media (min-width: 600.1px) {
