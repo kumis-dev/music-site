@@ -3,6 +3,24 @@
   box-sizing: border-box;
 }
 
+html::-webkit-scrollbar {
+  width: 8px;                 /* ширина полосы */
+}
+
+html::-webkit-scrollbar-track {
+  background: rgb(233, 187, 142);  /* фон дорожки */
+  border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: rgb(180, 120, 70);   /* сам ползунок */
+  border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: rgb(150, 90, 50);
+}
+
 body {
   margin: 0;
   overflow-y: auto;
@@ -49,6 +67,24 @@ body {
   padding: 10px;
   text-align: center;
   min-width: 0;
+}
+
+.playlist-titles::-webkit-scrollbar {
+  width: 8px;                 /* ширина полосы */
+}
+
+.playlist-titles::-webkit-scrollbar-track {
+  background: rgb(233, 187, 142);  /* фон дорожки */
+  border-radius: 10px;
+}
+
+.playlist-titles::-webkit-scrollbar-thumb {
+  background: rgb(180, 120, 70);   /* сам ползунок */
+  border-radius: 10px;
+}
+
+.playlist-titles::-webkit-scrollbar-thumb:hover {
+  background: rgb(150, 90, 50);
 }
 
 .cover-playlist {
